@@ -35,11 +35,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         }
-        public void OnPoionterDown(PointerEventData eventData)
-        {
-            Debug.Log("OnPointerDrag");
-        }
-        public void OnDrop(PointerEventData eventData)
+ 
+    public void OnDrop(PointerEventData eventData)
         {
         throw new System.NotImplementedException();
         }
