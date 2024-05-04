@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
-    public GameObject popUp; // Reference to your pop-up input field GameObject
+    public GameObject popUp; 
     private bool hasItem = false;
 
     void Start()
     {
-        // Initially, deactivate the pop-up
+   
         if (popUp != null)
             popUp.SetActive(false);
     }
@@ -22,15 +22,12 @@ public class ItemSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
 
         if (eventData.pointerDrag != null)
         {
-            // Set the anchored position of the dragged item to match this slot
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
 
-            // Disable any drag-related scripts (if applicable)
             DragDrop dragScript = eventData.pointerDrag.GetComponent<DragDrop>();
             if (dragScript != null)
                 dragScript.enabled = false;
 
-            // Show the PopUp (if available)
             if (popUp != null)
                 popUp.SetActive(true);
         }
@@ -40,7 +37,6 @@ public class ItemSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         Debug.Log("OnPointerClick");
 
-        // Show the PopUp when the slot is clicked (if available)
         if (popUp != null)
             popUp.SetActive(true);
     }
